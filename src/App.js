@@ -18,7 +18,7 @@ componentDidMount() {
 }
 
 getPokemons() {
-		for (let i = 1; i <= 26; i++) {
+		for (let i = 1; i <= 2; i++) {
 			fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 				.then(response => response.json())
 				.then(response1 => {
@@ -35,7 +35,7 @@ getPokemons() {
   render() {
     return (
       <div className="App">
-      <home
+      <Home
           pokemons={this.state.pokemons}
           name={this.state.name}
       />

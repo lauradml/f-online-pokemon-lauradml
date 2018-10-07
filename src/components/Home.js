@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoList from './ListPokemons';
+import ListPokemons from './ListPokemons';
 
 
 
@@ -12,7 +12,7 @@ class Home extends React.Component {
 
         </header>
         <ListPokemons
-          repos={this.props.pokemons}
+          pokemons={this.props.pokemons}
           name={this.props.name}
 
         />
