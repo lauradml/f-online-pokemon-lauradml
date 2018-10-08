@@ -25,7 +25,7 @@ componentDidMount() {
 }
 
 getPokemons() {
-		for (let i = 1; i <= 2; i++) {
+		for (let i = 1; i <= 25; i++) {
 			fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 				.then(response => response.json())
 				.then(response1 => {
