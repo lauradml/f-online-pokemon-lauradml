@@ -7,12 +7,19 @@ import Home from './components/Home';
 class App extends Component {
     constructor(props) {
     super(props);
+      this.filterName = this.filterName.bind(this);
 
     this.state = {
     pokemons: [],
     name:""
     }
 }
+filterName(e) {
+    const resultado = e.currentTarget.value.toLowerCase();
+    this.setState({
+      name: resultado
+    });
+  }
 componentDidMount() {
   this.getPokemons();
 }
@@ -38,6 +45,7 @@ getPokemons() {
       <Home
           pokemons={this.state.pokemons}
           name={this.state.name}
+          filterName={this.filterName}
       />
 
       </div>

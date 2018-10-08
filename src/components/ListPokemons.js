@@ -7,6 +7,9 @@ class ListPokemons extends React.Component {
     return (
       <ul className="app-list">
         {this.props.pokemons
+          .filter(item => {
+              return item.name.toLowerCase().includes(this.props.filterName);
+            })
           .map(item=>{
           return (
             <li className="app-item" key={item.id}>
