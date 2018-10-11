@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home';
+import {Switch, Route} from 'react-router-dom';
+import PokemonDetail from'./components/PokemonDetail';
 
 
 
@@ -25,7 +27,7 @@ componentDidMount() {
 }
 
 getPokemons() {
-		for (let i = 1; i <= 25; i++) {
+		for (let i = 1; i <= 2; i++) {
 			fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 				.then(response => response.json())
 				.then(response1 => {
@@ -42,11 +44,18 @@ getPokemons() {
   render() {
     return (
       <div className="App">
-      <Home
-          pokemons={this.state.pokemons}
-          name={this.state.name}
-          filterName={this.filterName}
-      />
+        <Switch>
+          <Route exact path="/" render={ () =><Home
+              pokemons={this.state.pokemons}
+              name={this.state.name}
+              filterName={this.filterName}
+          />} />
+          <Route path="/PokemonDetail/:id" render={(props) =>
+             <PokemonDetail
+             match={props.match}
+             pokemons={this.state.pokemons}
+              />} />
+        </Switch>
 
       </div>
     );
