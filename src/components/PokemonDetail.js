@@ -6,7 +6,7 @@ class PokemonDetail extends React.Component {
 
 
   render(){
-      const { name, sprites, height, weight, abilities, evolves_to} = this.props.pokemons[this.props.match.params.id];
+      const { name, sprites, height, weight, abilities, evolves_to} = this.props.pokemons[this.props.match.params.id -1];
 
       if (this.props.pokemons.length === 0) {
         return null;
@@ -24,10 +24,12 @@ class PokemonDetail extends React.Component {
                 <p>Height: {height}</p>
                 <p>Weight: {weight}</p>
                 <div className="abilities-detail">
-                  <span> Ability:</span>
+                  <p className="ability-name-detail"> Ability: </p>
                   {abilities.map(pokemonAbilities =><p className="ability-name-detail">{pokemonAbilities.ability.name.toUpperCase()}</p>)}
                 </div>
-            
+                {/*<div className="evolves-detail">
+                  {evolves_to.map(pokemonEvolves =><p className="evolves-name-detail">{pokemonEvolves.species.name.toUpperCase()}</p>)}
+                </div>*/}
                 <Link to="/" className="back-btn"> Volver </Link>
               </div>
             </div>

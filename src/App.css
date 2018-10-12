@@ -81,3 +81,46 @@ a{
   color: #6e7173;
 
 }
+.container-detail{
+  padding-top: 100px;
+}
+.app-item-detail{
+  height: 350px;
+  width: 400px;
+  background-color:#ffffff;
+  border: 1px solid #bbbebe;
+
+}
+.container-imagen-detail{
+  height: 120px;
+  background: #e8e9ed;
+}
+.imagen-detail{
+  width: 120px;
+  height: 120px;
+}
+
+.description-detail{
+  text-align: left;
+  padding-left: 45px;
+
+}
+.title-detail{
+  text-align: center;
+  text-transform: capitalize;
+  color: black;
+}
+.abilities-detail{
+  display: flex;
+
+}
+.ability-name-detail{
+  margin-top: 0px;
+  padding-right: 5px;
+}
+.back-btn{
+  color: black;
+  border-style: double;
+  border-radius: 5xp;
+  padding: 5px 10px 5px 10px ;
+}
