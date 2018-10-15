@@ -1,5 +1,6 @@
 import React from 'react';
 import Pokemon from './Pokemon';
+import {Link} from 'react-router-dom';
 
 
 class ListPokemons extends React.Component {
@@ -14,7 +15,9 @@ class ListPokemons extends React.Component {
           .map(item=>{
           return (
             <li className="app-item" key={item.id}>
+              <Link to={`/pokemonDetail/${item.id}`} >
                   <Pokemon item={item}/>
+              </Link>
             </li>
           );
         })}
