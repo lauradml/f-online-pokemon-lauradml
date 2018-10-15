@@ -27,18 +27,27 @@ componentDidMount() {
 }
 
 getPokemons() {
-		for (let i = 1; i <= 2; i++) {
-			fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
-				.then(response => response.json())
-				.then(response1 => {
-					console.log(response1)
+		for (let i = 1; i <= 25; i++) {
+      Promise.all([
+        fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
+        .then(response => response.json()),
+        fetch('https://pokeapi.co/api/v2/pokemon-species/' + i + '/')
+        .then(response => response.json()),
+        fetch('https://pokeapi.co/api/v2/evolution-chain/' + i + '/' )
+        .then(response => response.json()),
+      ])
+				.then(([pokemon, pokemonSpecie, pokemonEvolves ])=> {
+          pokemon.evolve_from_specie = pokemonSpecie.evolves_from_species && pokemonSpecie.evolves_from_species.name;
+          pokemon.evolve_to =  pokemonEvolves.chain.evolves_to ;
 					this.setState({
 						pokemons:
-							[...this.state.pokemons, response1]
+							[...this.state.pokemons, pokemon],
 					})
 				})
 		}
 	}
+
+
 
 
   render() {
