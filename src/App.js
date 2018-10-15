@@ -27,7 +27,7 @@ componentDidMount() {
 }
 
 getPokemons() {
-		for (let i = 1; i <= 3; i++) {
+		for (let i = 1; i <= 25; i++) {
       Promise.all([
         fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
         .then(response => response.json()),
@@ -41,7 +41,7 @@ getPokemons() {
           pokemon.evolve_to =  pokemonEvolves.chain.evolves_to ;
 					this.setState({
 						pokemons:
-							[...this.state.pokemons,pokemon],
+							[...this.state.pokemons, pokemon],
 					})
 				})
 		}

@@ -14,7 +14,7 @@ class ListPokemons extends React.Component {
           .sort((a, b) => a.id - b.id)
           .map(item=>{
           return (
-            <li className="app-item" key={item.id }>
+            <li className="app-item" key={item.id}>
               <Link to={`/pokemonDetail/${item.id}`} >
                   <Pokemon item={item}/>
               </Link>
