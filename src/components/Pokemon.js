@@ -4,7 +4,7 @@ class Pokemon extends React.Component {
 
   render(){
 
-      const{name, id, sprites, types }= this.props.item;
+      const{name, id, sprites, types, evolve_from_specie }= this.props.item ;
     return (
       <div className="card">
         <div className="image-card">
@@ -16,6 +16,7 @@ class Pokemon extends React.Component {
           <div className="type-card">
             {types.map(pokemonType => <p className="type-name-card">{pokemonType.type.name.toUpperCase()}</p>)}
           </div>
+            <p className="evolve-card" >Evoluciona de: {evolve_from_specie}</p>
         </div>
 
       </div>
