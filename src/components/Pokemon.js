@@ -1,6 +1,14 @@
 import React from 'react';
 
 class Pokemon extends React.Component {
+  noEvolve(evolve_from_specie){
+      if (evolve_from_specie === null) {
+        return <p className="evolve-card" >Evolves from: none </p>
+
+      } else {
+        return <p className="evolve-card" >Evolves from: {evolve_from_specie}</p>
+      }
+    }
 
   render(){
 
@@ -16,7 +24,7 @@ class Pokemon extends React.Component {
           <div className="type-card">
             {types.map(pokemonType => <p className="type-name-card">{pokemonType.type.name.toUpperCase()}</p>)}
           </div>
-            <p className="evolve-card" >Evoluciona de: {evolve_from_specie}</p>
+          {this.noEvolve(evolve_from_specie)}
         </div>
 
       </div>
